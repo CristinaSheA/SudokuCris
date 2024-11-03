@@ -5,25 +5,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CandiesService {
-  public candies: Candy[] = []
+  public candies: Candy[] = [];
   private http = inject(HttpClient);
   public apiUrl = 'http://localhost:3000/candies';
 
-
-  
-  // public getCandies() {
-  //   let req = this.http!.get<Candy[]>(`${this.apiUrl}`);
-  //   return req.subscribe(
-  //     (data: Candy[]) => {
-  //       this.candies = data;
-  //       console.log(this.candies);
-  //     },
-  //     (error) => console.error(error)
-  //   );
-  // }
   public createCandy(form: FormGroup): void {
     const name = form.get('name')!.value;
     const quantity = form.get('quantity')!.value;
@@ -48,7 +36,4 @@ export class CandiesService {
       (error) => console.error(error)
     );
   }
-
-  constructor() { }
-
 }

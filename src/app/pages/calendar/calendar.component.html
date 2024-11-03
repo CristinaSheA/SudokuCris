@@ -17,9 +17,10 @@
     </p>
     <p>{{daysToNewYear()}} дней до Нового года </p>
   </div>
-  <div class="fact">
-    <div class="fact-text"></div>
-    <img src="" alt="" class="fact-img">
-    <div class="img-info"></div>
-  </div>
+  @if(currentDay) {
+    <div class="fact">
+      <div class="fact-text">{{currentDay.factText}}</div>
+      <img [src]="src" alt="Imagen del día" class="fact-img">
+    </div>
+  }
 </main>
