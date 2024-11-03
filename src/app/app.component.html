@@ -1,7 +1,7 @@
 <div class="calendar-book">
   <router-outlet/>
   @if(showReward) {
-    <reward/>
+    <reward class="animate__animated animate__rotateInDownLeft" (click)="setShowReward(false)"/>
   }
   <nav>
     <button routerLink="/calendar">calendar</button>

@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   align-items: center;
+  position: relative;
 }
 header {
   display: flex;
@@ -25,4 +26,12 @@ nav button {
   border: 0;
   padding: 0px 5px;
   border-right: 2px solid;
+}
+reward {
+  cursor: pointer;
+  position: absolute;
+  background-image: url(../assets/post-it.png);
+  width: 360px;
+  height: 360px;
+  transition: 0.35s;
 }
