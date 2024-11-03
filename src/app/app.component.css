@@ -4,7 +4,7 @@
   width: 100%;
   height: 656px;
   margin: 0 auto;
-  background-image: url(../assets/paper-background.png);
+  background-image: url(../assets/img/paper-background.png);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +30,7 @@ nav button {
 reward {
   cursor: pointer;
   position: absolute;
-  background-image: url(../assets/post-it.png);
+  background-image: url(../assets/img/post-it.png);
   width: 360px;
   height: 360px;
   transition: 0.35s;

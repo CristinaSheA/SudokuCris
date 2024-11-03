@@ -1,5 +1,5 @@
 body {
   transition: background-color 0.5s ease;
-  background-image: url(./assets/main-background.jpg);
+  background-image: url(./assets/img/main-background.jpg);
   font-family: 'Playfair Display';
 }
