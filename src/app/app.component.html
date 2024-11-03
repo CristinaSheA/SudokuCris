@@ -1,0 +1,12 @@
+<div class="calendar-book">
+  <router-outlet/>
+  @if(showReward) {
+    <reward/>
+  }
+  <nav>
+    <button routerLink="/calendar">calendar</button>
+    <button routerLink="/wishlist">wishlist</button>
+    <button (click)="setShowReward(true)">candy</button>
+    <button id="last-nav-opt" routerLink="/reward-creator">add candy/activity</button>
+  </nav>
+</div>
