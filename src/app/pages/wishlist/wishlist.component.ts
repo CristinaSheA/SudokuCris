@@ -4,13 +4,32 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'wishlist',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WishlistComponent { 
-
+export class WishlistComponent {
+  public year = new Date().getFullYear();
+  public day = new Date().getDate();
+  public month() {
+    const d = new Date();
+    let day;
+    const ruMonth = [
+      'Январь',
+      'Февраль',
+      'Март',
+      'Апрель',
+      'Май',
+      'Июнь',
+      'Июль',
+      'Август',
+      'Сентябрь',
+      'Октябрь',
+      'Ноябрь',
+      'Декабрь',
+    ];
+    day = ruMonth[d.getMonth()];
+    return day;
+  }
 }

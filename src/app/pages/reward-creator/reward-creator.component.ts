@@ -15,48 +15,24 @@ export class RewardCreatorComponent {
   public showSignImg1: boolean = false;
   public showSignImg2: boolean = false;
 
-
-
-  public month(language: string) {
+  public month() {
     const d = new Date();
     let day;
-    switch (language) {
-      case 'eng':
-        const engMonth = [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ];
-        day = engMonth[d.getMonth()];
-        return day;
-
-      case 'ru':
-        const ruMonth = [
-          'Январь',
-          'Февраль',
-          'Март',
-          'Апрель',
-          'Май',
-          'Июнь',
-          'Июль',
-          'Август',
-          'Сентябрь',
-          'Октябрь',
-          'Ноябрь',
-          'Декабрь',
-        ];
-        day = ruMonth[d.getMonth()];
-        return day;
-    }
+    const ruMonth = [
+      'Январь',
+      'Февраль',
+      'Март',
+      'Апрель',
+      'Май',
+      'Июнь',
+      'Июль',
+      'Август',
+      'Сентябрь',
+      'Октябрь',
+      'Ноябрь',
+      'Декабрь',
+    ];
+    day = ruMonth[d.getMonth()];
     return day;
   }
   public sign(value: boolean, img: number) {
