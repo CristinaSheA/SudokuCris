@@ -1,1 +1,28 @@
-<p>reward-creator works!</p>,
+<header class="calistoga">
+  {{ year }}
+  <h1 class="uppercase">{{ month("ru") }}</h1>
+  31 дней
+</header>
+<main>
+  <div class="add-candy">
+    <h2>add candy</h2>
+    <h3 class="uppercase">candy name:</h3>
+    <input type="text">
+    <h3 class="uppercase">candy quantity:</h3>
+    <input type="number">
+    <button class="sign" (click)="sign(true, 1)">sign</button>
+    <br>
+    @if(showSignImg1) {
+      <img src="../../../assets/stamp.png" class="animate__animated animate__tada" alt="">
+    }
+  </div>
+  <div class="add-activity">
+    <h2>add activity</h2>
+    <h3 class="uppercase">activity name:</h3>
+    <input type="text">
+    <button class="sign" (click)="sign(true, 2)">sign</button>
+    @if(showSignImg2) {
+      <img src="../../../assets/stamp.png" class="animate__animated animate__tada" alt="">
+    }
+  </div>
+</main>

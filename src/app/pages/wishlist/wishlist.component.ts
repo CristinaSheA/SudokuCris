@@ -11,4 +11,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./wishlist.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WishlistComponent { }
+export class WishlistComponent { 
+
+}
