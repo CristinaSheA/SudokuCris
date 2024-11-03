@@ -24,7 +24,3 @@ nav button {
   padding: 0px 5px;
   border-right: 2px solid;
 }
-
-router-outlet {
-  width: 100%;
-}

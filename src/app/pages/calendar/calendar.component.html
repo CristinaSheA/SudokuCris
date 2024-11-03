@@ -1,5 +1,25 @@
-<header>
-  {{year}}
-  <h1>ДЕКАБРЬ</h1>
-  
+<header class="calistoga">
+  {{ year }}
+  <h1 class="uppercase">{{ month("ru") }}</h1>
+  31 дней
 </header>
+<main>
+  <div class="time-info">
+    <h2 class="day calistoga">
+      {{ day }}
+    </h2>
+    <h3 class="uppercase">
+      {{ weekDay("ru") }}
+    </h3>
+    <p class="uppercase">
+      {{ month("eng") }},
+      {{ weekDay("eng") }}
+    </p>
+    <p>{{daysToNewYear()}} дней до Нового года </p>
+  </div>
+  <div class="fact">
+    <div class="fact-text"></div>
+    <img src="" alt="" class="fact-img">
+    <div class="img-info"></div>
+  </div>
+</main>
