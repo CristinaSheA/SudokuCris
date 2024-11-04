@@ -2,12 +2,6 @@
   display: block;
   padding: 0px 15px;
 }
-.calistoga {
-  font-family: "Calistoga", serif;
-}
-.uppercase {
-  text-transform: uppercase;
-}
 header {
   border-bottom: 3px solid;
   margin-top: 40px;
@@ -35,7 +29,8 @@ h3 {
   font-size: 14px;
   margin: 0;
 }
-.add-candy, .add-activity {
+.add-candy,
+.add-activity {
   position: relative;
   width: 50%;
   display: flex;
@@ -58,7 +53,7 @@ input {
   cursor: pointer;
   border-radius: 3px;
   background-color: transparent;
-  border: 2px solid #93733C;
+  border: 2px solid #93733c;
   letter-spacing: 0.6px;
 }
 img {

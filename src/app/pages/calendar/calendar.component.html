@@ -15,12 +15,12 @@
       {{ month("eng") }},
       {{ weekDay("eng") }}
     </p>
-    <p>{{daysToNewYear()}} дней до Нового года </p>
+    <p>{{ daysToNewYear() }} дней до Нового года</p>
   </div>
-  @if(currentDay) {
-    <div class="fact">
-      <div class="fact-text">{{currentDay.factText}}</div>
-      <img [src]="src" alt="Imagen del día" class="fact-img">
-    </div>
+  @if(todayInfo) {
+  <div class="fact">
+    <div class="fact-text">{{ todayInfo.factText }}</div>
+    <img [src]="src" alt="Imagen del día" class="fact-img" />
+  </div>
   }
 </main>

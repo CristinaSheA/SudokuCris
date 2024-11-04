@@ -8,9 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { CandiesService } from '../../services/candies.service';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Candy } from '../../interfaces/candy';
 
 @Component({
   selector: 'reward-creator',
@@ -21,21 +18,19 @@ import { Candy } from '../../interfaces/candy';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RewardCreatorComponent {
-  public year = new Date().getFullYear();
-  public day = new Date().getDate();
+  private readonly candiesService: CandiesService = inject(CandiesService);
+  private readonly fb: FormBuilder = inject(FormBuilder);
+
+  public year: number = new Date().getFullYear();
+  public day: number = new Date().getDate();
   public showSignImg1: boolean = false;
   public showSignImg2: boolean = false;
-
-  private readonly fb = inject(FormBuilder);
-  private readonly candiesService = inject(CandiesService);
-  private http = inject(HttpClient);
-
   public candyForm: FormGroup = this.fb!.group({
     name: ['', [Validators.required, Validators.minLength(1)]],
     quantity: [0, [Validators.required, Validators.min(1)]],
   });
 
-  public createCandy() {
+  public createCandy(): void {
     if (this.candyForm.invalid) {
       this.candyForm.markAllAsTouched;
       return;
@@ -43,9 +38,9 @@ export class RewardCreatorComponent {
     this.candiesService!.createCandy(this.candyForm);
     this.candyForm.reset();
   }
-  public month() {
+  public month(): string {
     const d = new Date();
-    let day;
+    let month;
     const ruMonth = [
       'Январь',
       'Февраль',
@@ -60,10 +55,10 @@ export class RewardCreatorComponent {
       'Ноябрь',
       'Декабрь',
     ];
-    day = ruMonth[d.getMonth()];
-    return day;
+    month = ruMonth[d.getMonth()];
+    return month;
   }
-  public sign(value: boolean, img: number) {
+  public sign(value: boolean, img: number): void {
     switch (img) {
       case 1:
         this.createCandy();

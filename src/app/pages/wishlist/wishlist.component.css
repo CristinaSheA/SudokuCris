@@ -2,12 +2,6 @@
   display: block;
   padding: 0px 15px;
 }
-.calistoga {
-  font-family: "Calistoga", serif;
-}
-.uppercase {
-  text-transform: uppercase;
-}
 header {
   border-bottom: 3px solid;
   margin-top: 40px;

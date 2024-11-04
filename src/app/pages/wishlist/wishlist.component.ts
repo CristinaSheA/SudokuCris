@@ -11,10 +11,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class WishlistComponent {
   public year = new Date().getFullYear();
-  public day = new Date().getDate();
   public month() {
     const d = new Date();
-    let day;
+    let month;
     const ruMonth = [
       'Январь',
       'Февраль',
@@ -29,7 +28,7 @@ export class WishlistComponent {
       'Ноябрь',
       'Декабрь',
     ];
-    day = ruMonth[d.getMonth()];
-    return day;
+    month = ruMonth[d.getMonth()];
+    return month;
   }
 }

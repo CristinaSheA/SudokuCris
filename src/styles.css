@@ -1,5 +1,12 @@
 body {
   transition: background-color 0.5s ease;
   background-image: url(./assets/img/main-background.jpg);
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
+}
+
+.calistoga {
+  font-family: "Calistoga", serif;
+}
+.uppercase {
+  text-transform: uppercase;
 }
