@@ -14,17 +14,14 @@ export class ActivitiesService {
     this.http!.get<Activity[]>(`${this.apiUrl}`).subscribe(
       (data: Activity[]) => {
         this.activities = data;
-        console.log(this.activities);
       },
       (error) => console.error(error)
     );
   }
   public getRandomActivity(): any {
-    console.log(this.activities);
     let randomIndex = Math.floor(Math.random() * this.activities.length);
     const activityToReturn = this.activities[randomIndex];
-    console.log(activityToReturn.name);
-    this.deleteActivity(activityToReturn);
+    // this.deleteActivity(activityToReturn);
     return activityToReturn.name;
   }
   private deleteActivity(activity: Activity): any {

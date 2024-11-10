@@ -27,7 +27,6 @@ export class CalendarComponent {
   ngOnInit() {
     this.getDayImage();
   }
-
   public month(language: string): string | undefined {
     const d = new Date();
     let month;
