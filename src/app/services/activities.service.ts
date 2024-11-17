@@ -19,9 +19,11 @@ export class ActivitiesService {
     );
   }
   public getRandomActivity(): any {
+    
     let randomIndex = Math.floor(Math.random() * this.activities.length);
     const activityToReturn = this.activities[randomIndex];
-    // this.deleteActivity(activityToReturn);
+    this.deleteActivity(activityToReturn);
+    console.log(activityToReturn);
     return activityToReturn.name;
   }
   private deleteActivity(activity: Activity): any {

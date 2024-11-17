@@ -11,6 +11,8 @@ export class DaysService {
   private http = inject(HttpClient);
   public days: Day[] = [];
   public openedDays: any[] = [];
+  public daysRippedOff: any[] = [];
+
 
 
   public getDays(): Observable<Day[]> {

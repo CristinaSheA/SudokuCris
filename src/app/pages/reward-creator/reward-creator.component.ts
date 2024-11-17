@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CandiesService } from '../../services/candies.service';
+import { ActivitiesService } from '../../services/activities.service';
 
 @Component({
   selector: 'reward-creator',
@@ -19,6 +20,7 @@ import { CandiesService } from '../../services/candies.service';
 })
 export class RewardCreatorComponent {
   private readonly candiesService: CandiesService = inject(CandiesService);
+  private readonly activitiesService: ActivitiesService = inject(ActivitiesService);
   private readonly fb: FormBuilder = inject(FormBuilder);
 
   public year: number = new Date().getFullYear();

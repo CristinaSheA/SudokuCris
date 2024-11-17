@@ -6,14 +6,14 @@
 <main>
   <div class="time-info">
     <h2 class="day calistoga">
-      {{ day }}
+      {{ dayNum }}
     </h2>
     <h3 class="uppercase">
-      {{ weekDay("ru") }}
+      {{ weekDay("ru", "today") }}
     </h3>
     <p class="uppercase">
       {{ month("eng") }},
-      {{ weekDay("eng") }}
+      {{ weekDay("eng", "today") }}
     </p>
     <p>{{ daysToNewYear() }} дней до Нового года</p>
   </div>
@@ -24,3 +24,34 @@
   </div>
   }
 </main>
+
+@if(showYesterday === true) {
+<div class="yesterday" (click)="ripOff()" [class.rip]="ripped">
+  <header class="calistoga">
+    {{ year }}
+    <h1 class="uppercase">{{ month("ru") }}</h1>
+    31 дней
+  </header>
+  <main>
+    <div class="time-info">
+      <h2 class="day calistoga">
+        {{ dayNum - 1 }}
+      </h2>
+      <h3 class="uppercase">
+        {{ weekDay("ru", "yesterday") }}
+      </h3>
+      <p class="uppercase">
+        {{ month("eng") }},
+        {{ weekDay("eng", "yesterday") }}
+      </p>
+      <p>{{ daysToNewYear() + 1 }} дней до Нового года</p>
+    </div>
+    @if(yesterdayInfo) {
+    <div class="fact">
+      <div class="fact-text">{{ yesterdayInfo.factText }}</div>
+      <img [src]="yesterdaySrc" alt="Imagen del día" class="fact-img" />
+    </div>
+    }
+  </main>
+</div>
+}

@@ -29,17 +29,13 @@ h3 {
   font-size: 14px;
   margin: 0;
 }
-.add-candy,
-.add-activity {
+.add-candy {
+  width: 100%;
   position: relative;
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.add-candy {
-  border-right: 5px solid;
 }
 input {
   margin-bottom: 10px;

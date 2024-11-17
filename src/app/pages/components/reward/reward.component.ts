@@ -16,9 +16,32 @@ export class RewardComponent {
   private readonly activitiesService = inject(ActivitiesService);
 
   public get getRandomCandy(): any {
-    return this.candiesService.getRandomCandy();
+    if (this.candiesService.getRandomCandy()) {
+      return this.candiesService.getRandomCandy();
+    } else {
+      return 'no candies available';
+    }
   }
   public get getRandomActivity(): any {
-    return this.activitiesService.getRandomActivity();
+    if (this.weekDay() === 'Saturday') {
+      return this.activitiesService.getRandomActivity();
+    } else {
+      return 'no activity today';
+    }
+  }
+  public weekDay(): string | undefined {
+    const d = new Date();
+    let day;
+    const weekday = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+    day = weekday[d.getDay()];
+    return day;
   }
 }

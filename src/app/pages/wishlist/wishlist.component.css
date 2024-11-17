@@ -25,11 +25,13 @@ h2 {
 }
 ul {
   max-height: 300px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+
 }
 a {
   text-decoration: none;
   color: black;
+}
+a:hover {
+  color: rgb(49, 49, 49);
+  text-decoration: underline;
 }

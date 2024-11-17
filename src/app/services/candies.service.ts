@@ -15,6 +15,7 @@ export class CandiesService {
   public createCandy(form: FormGroup): void {
     const name = form.get('name')!.value;
     const quantity = form.get('quantity')!.value;
+    if (quantity <= 0) return
     this.createQuery(name, quantity).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)

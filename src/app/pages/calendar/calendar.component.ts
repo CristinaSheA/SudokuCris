@@ -20,12 +20,40 @@ export class CalendarComponent {
   private readonly cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   public year = new Date().getFullYear();
-  public day = new Date().getDate();
+  public dayNum = new Date().getDate();
   public todayInfo: any = null;
   public src: string = '';
+  public yesterdayInfo: any = null;
+  public yesterdaySrc: string = '';
+  public showYesterday: boolean = true;
+  public ripped: boolean = false;
 
   ngOnInit() {
     this.getDayImage();
+    this.getYesterdayImage();
+    console.log('fsaf');
+
+    let daysRippedOffString = localStorage.getItem('daysRippedOff');
+    if (daysRippedOffString) {
+      let daysRippedOff: number[] = JSON.parse(daysRippedOffString);
+      this.daysService.daysRippedOff = daysRippedOff;
+    } else return;
+
+    if (this.daysService.daysRippedOff.includes(this.dayNum)) {
+      this.showYesterday = false;
+    }
+  }
+  public ripOff(): void {
+    if (this.daysService.daysRippedOff.includes(this.dayNum)) {
+      this.showYesterday = false;
+      return;
+    }
+    this.ripped = true;
+    this.daysService.daysRippedOff.push(this.dayNum);
+    localStorage.setItem(
+      'daysRippedOff',
+      JSON.stringify(this.daysService.daysRippedOff)
+    );
   }
   public month(language: string): string | undefined {
     const d = new Date();
@@ -69,7 +97,7 @@ export class CalendarComponent {
     }
     return month;
   }
-  public weekDay(language: string): string | undefined {
+  public weekDay(language: string, time: string): string | undefined {
     const d = new Date();
     let day;
     switch (language) {
@@ -83,7 +111,12 @@ export class CalendarComponent {
           'Friday',
           'Saturday',
         ];
-        day = engWeekday[d.getDay()];
+        if (time === 'today') {
+          day = engWeekday[d.getDay()];
+        } else {
+          d.setDate(d.getDate() - 1);
+          day = engWeekday[d.getDay()];
+        }
         return day;
 
       case 'ru':
@@ -96,7 +129,12 @@ export class CalendarComponent {
           'Пятница',
           'Суббота',
         ];
-        day = ruWeekday[d.getDay()];
+        if (time === 'today') {
+          day = ruWeekday[d.getDay()];
+        } else {
+          d.setDate(d.getDate() - 1);
+          day = ruWeekday[d.getDay()];
+        }
         return day;
     }
     return day;
@@ -111,7 +149,7 @@ export class CalendarComponent {
   }
   private getDayImage(): void {
     this.daysService.getDays().subscribe((days: any[]) => {
-      const today = days.find((day) => day.dayNum === this.day);
+      const today = days.find((day) => day.dayNum === this.dayNum);
       this.daysService.days = days;
       if (today) {
         this.todayInfo = today;
@@ -119,6 +157,20 @@ export class CalendarComponent {
       } else {
         this.todayInfo = null;
         this.src = '';
+        console.log('No se encontró el día correspondiente.');
+      }
+      this.cdr.detectChanges();
+    });
+  }
+  private getYesterdayImage(): void {
+    this.daysService.getDays().subscribe((days: any[]) => {
+      const yesterday = days.find((day) => day.dayNum === this.dayNum - 1);
+      if (yesterday) {
+        this.yesterdayInfo = yesterday;
+        this.yesterdaySrc = `http://localhost:3000/static/${yesterday.image}`;
+      } else {
+        this.yesterdayInfo = null;
+        this.yesterdaySrc = '';
         console.log('No se encontró el día correspondiente.');
       }
       this.cdr.detectChanges();
