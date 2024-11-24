@@ -1,18 +1,1 @@
-<div class="calendar-book">
-  <router-outlet/>
-  @if(showReward) {
-    <reward class="animate__animated animate__rotateInDownLeft" (click)="setShowReward(false)"/>
-  }
-  <nav>
-    <button routerLink="/calendar">calendar</button>
-    <button routerLink="/wishlist">wishlist</button>
-    @if(showCandyOption()) {
-      <button (click)="setShowReward(true)">candy</button>
-    }
-    <button id="last-nav-opt" routerLink="/reward-creator">add candy/activity</button>
-  </nav>
-</div>
 
-<!-- <audio autoplay loop>
-  <source src="../assets/sound/spotifydown.com - white xmas.mp3">
-</audio> -->
