@@ -1,0 +1,20 @@
+<table>
+  @for(row of table; track row; let rowIndex = $index) {
+  <tr>
+    @for(cell of row; track cell; let colIndex = $index) {
+    <td (click)="selectCell(rowIndex, colIndex)">
+      @if(cell !== 0) {
+        {{ cell > 0 ? cell : "" }}
+      } @else {
+        <input
+          type="number"
+          (click)="selectCell(rowIndex, colIndex)"
+          (focusout)="saveNewNumber(rowIndex, colIndex, $event)"  
+          [value]="cell > 0 ? cell : ''"
+        />
+      }
+    </td>
+    }
+  </tr>
+  }
+</table>
